@@ -1,4 +1,4 @@
-
+import './Campo.css'
 const Campo = (props) => {
 
     const aoDigitado =(evento) => {

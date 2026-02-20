@@ -1,18 +1,17 @@
 import { useState } from "react";
-import './CampoSelecao.css';
 import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
+import './CampoSelecao.css';
 
 const CampoSelecao = (props) => {
     const [aberto, setAberto] = useState(false);
-
     const itemAtual = (props.item || []).find(i => {
-        const nome = i.nome || i;
+        const nome = i.nome || i; 
         return nome === props.valor;
     });
 
     const aoClicarOpcao = (valorSelecionado) => {
         props.aoAlterado(valorSelecionado);
-        setAberto(false);
+        setAberto(false); 
     };
 
     return (
@@ -20,10 +19,7 @@ const CampoSelecao = (props) => {
             <label>{props.label}</label>
             
             <div className="selecao-trigger" onClick={() => setAberto(!aberto)}>
-                <span 
-                    className="tag-exibicao"
-                    style={{ backgroundColor: itemAtual?.cor || '#66c0f4' }}
-                >
+                <span className="tag-exibicao" style={{ backgroundColor: itemAtual?.cor || '#555' }}>
                     {props.valor || "Selecione..."}
                 </span>
                 {aberto ? <MdOutlineKeyboardArrowUp size={24}/> : <MdOutlineKeyboardArrowDown size={24}/>}
@@ -32,8 +28,9 @@ const CampoSelecao = (props) => {
             {aberto && (
                 <div className="opcoes-container">
                     {(props.item || []).map((i) => {
-                        const nome = i.nome || i;
-                        const cor = i.cor || 'transparent';
+
+                        const nome = i.nome || i; 
+                        const cor = i.cor || 'transparent'; 
                         
                         return (
                             <div 

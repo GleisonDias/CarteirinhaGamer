@@ -1,0 +1,63 @@
+.campo-selecao {
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.campo-selecao label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+}
+
+.selecao-trigger {
+    background-color: #2c2f33; 
+    color: white;
+    border: 1px solid #444;
+    padding: 10px;
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.campo-selecao:focus-within .selecao-trigger,
+.selecao-trigger:hover {
+    outline: none;
+    border-color: #00d1ff;
+    box-shadow: 0 0 5px rgba(0, 209, 255, 0.3);
+}
+
+.opcoes-container {
+    background-color: #2c2f33;
+    border: 1px solid #444;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    margin-top: -2px; 
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.opcao-item {
+    padding: 12px;
+    color: white;
+    cursor: pointer;
+}
+
+.opcao-item:hover {
+    background-color: #3e4248; 
+}
+
+.tag-exibicao {
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: white; 
+    font-weight: 500;
+}

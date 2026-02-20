@@ -25,8 +25,8 @@ export const franquiaOpcoes = [
 ];
 
 export const plataformasOpcoes = [
-{ nome: "Ps1", cor: "#e1e1e1" },
-    { nome: "Ps2", cor: "#003087" },
+    { nome: "Ps1", cor: "#e1e1e1" },
+    { nome: "Ps2", cor: "#003087" }, 
     { nome: "Ps3", cor: "#000000" },
     { nome: "Steam", cor: "#1b2838" },
     { nome: "Steam Família", cor: "#2a475e" },

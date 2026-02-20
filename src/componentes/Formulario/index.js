@@ -3,6 +3,7 @@ import {ordemCrono, franquiaOpcoes, plataformasOpcoes, statusOpcoes, notaOpcoes}
 import Campo from "../Campo";
 import CampoSelecao from "../CampoSelecao";
 import Botao from "../Botao";
+import './Formulario.css'
 
 const Formulario = (props) => {
 
@@ -16,7 +17,7 @@ const Formulario = (props) => {
 
     const aoSalvar = (evento) => {
         evento.preventDefault()
-        props.aoJogoCadastrado({
+        props.onSubmit({
             nome,
             ordem,
             franquia,
@@ -37,7 +38,11 @@ const Formulario = (props) => {
     return(
         <section className="formulario">
             <form onSubmit={aoSalvar}>
-                <h2>Cadastrar novo game.</h2>
+                <h2>Carteirinha Gamer</h2>
+                <h3>Bem-vindo à minha Carteirinha Gamer! Aqui organizo minha coleção de jogos de várias plataformas e lojas digitais.
+                     Cada game tem seu próprio espaço, com status de progresso, plataforma, data de conclusão, classificação e até imagem.
+                </h3>
+                <h3>Explore por franquias ou plataformas e acompanhe o que já foi zerado e o que ainda está na lista de desejos.</h3>
                 <Campo
                     label="Nome do Game"
                     placeholder="Digite o nome"
@@ -58,7 +63,7 @@ const Formulario = (props) => {
                 />
                 <CampoSelecao
                     label="Plataforma"
-                    item={plataformasOpcoes.map(p => p.nome)}
+                    item={plataformasOpcoes}
                     valor={plataforma}
                     aoAlterado={valor => setPlataforma(valor)}
                 />
