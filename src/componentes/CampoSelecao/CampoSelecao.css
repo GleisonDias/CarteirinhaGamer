@@ -1,21 +1,25 @@
 .campo-selecao {
-    width: 100%;
-    margin-bottom: 24px;
+    /*width: 100%;*/
+    margin-bottom: 16px;
+    position: relative;
 }
 
-.campo-selecao label {
+.campo-selecao-label{
     display: block;
-    margin-bottom: 8px;
     font-size: 18px;
     font-weight: 600;
-    color: white;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    color: var(--muted);
+    font-family: var(--mono);
 }
 
 .selecao-trigger {
-    background-color: #2c2f33; 
-    color: white;
-    border: 1px solid #444;
-    padding: 10px;
+    background-color: var(--card);
+    /*color: var(--text);*/
+    border: 1px solid var(--border2);
+    padding: 10px 14px;
     border-radius: 6px;
     width: 100%;
     box-sizing: border-box;
@@ -23,41 +27,50 @@
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    transition: 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .campo-selecao:focus-within .selecao-trigger,
 .selecao-trigger:hover {
     outline: none;
-    border-color: #00d1ff;
-    box-shadow: 0 0 5px rgba(0, 209, 255, 0.3);
-}
-
-.opcoes-container {
-    background-color: #2c2f33;
-    border: 1px solid #444;
-    border-top: none;
-    border-radius: 0 0 8px 8px;
-    margin-top: -2px; 
-    position: absolute;
-    width: 100%;
-    z-index: 10;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-}
-
-.opcao-item {
-    padding: 12px;
-    color: white;
-    cursor: pointer;
-}
-
-.opcao-item:hover {
-    background-color: #3e4248; 
+    border-color: var(--accent);
+    box-shadow: 0 0 5px rgba(0, 200, 255, 0.1);
 }
 
 .tag-exibicao {
-    padding: 2px 8px;
+    padding: 2px 10px;
     border-radius: 4px;
     color: white; 
     font-weight: 500;
+    font-family: var(--mono);
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 85%;
 }
+
+.opcoes-container {
+    background-color: var(--card);
+    border: 1px solid var(--border2);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    /*margin-top: -2px; */
+    position: absolute;
+    width: 100%;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    z-index: 50;
+    max-height: 200px;
+    overflow: auto;
+}
+
+.opcao-item {
+    padding: 10px 20px;
+    color: var(--text);
+    cursor: pointer;
+    transform: background 0.15s;
+    font-size: 13px;
+}
+
+.opcao-item:hover { background-color: var(--accent-dim); }
+.opcao-item.selecionada { background: var(--accent-dim);}

@@ -14,21 +14,24 @@ const CampoSelecao = (props) => {
         props.aoAlterado(valorSelecionado);
         setAberto(false);
     };
-
+    
     return (
         <div className="campo-selecao">
-            <label>{props.label}</label>
+            <label className="campo-selecao-label">{props.label}</label>
             
             <div className="selecao-trigger" onClick={() => setAberto(!aberto)}>
                 <span 
                     className="tag-exibicao"
-                    style={{ backgroundColor: itemAtual?.cor || '#66c0f4' }}
+                    style={{ backgroundColor: itemAtual?.cor || (props.valor ? '#66c0f4' : 'transparent') }}
                 >
                     {props.valor || "Selecione..."}
                 </span>
-                {aberto ? <MdOutlineKeyboardArrowUp size={24}/> : <MdOutlineKeyboardArrowDown size={24}/>}
+                {aberto 
+                    ? <MdOutlineKeyboardArrowUp size={24} color="var(--muted)" /> 
+                    : <MdOutlineKeyboardArrowDown size={24} color="var(--muted)" />
+                }
             </div>
-
+        
             {aberto && (
                 <div className="opcoes-container">
                     {(props.item || []).map((i) => {
