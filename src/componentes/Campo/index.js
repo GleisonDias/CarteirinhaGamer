@@ -5,8 +5,6 @@ const Campo = (props) => {
         props.aoAlterado(evento.target.value);
     };
 
-    console.log("valores armazenados no tipo:", props.tipo);
-    console.log("valores armazenados no props:", props);
     return(
         <div className="campo">
             <label className='campo-label'>{props.label}</label>

@@ -1,19 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@500&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
-
-:root {
-  --muted:#5a6a8a;
-  --mono: 'Share Tech Mono', monospace;
-  --body: 'Exo 2', sans-serif;
-  --display: "Rajdhani", sans-serif;
-  /*background-color: #2c2f33;*/
-  --card:#2c2f33;
-  --text:white;
-  --border:#1e2535;
-  --border2:#252d40;
-  --accent:#00d1ff;
-  --accent-dim:#00c8ff22;
-}
-.App-header {
-  background-color: #23272a;
+.app{
+  min-height: 100vh;
+   display: flex;
+  flex-direction: column;
 }
 
+/* .app-main {
+
+} */
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap:14px
+}

@@ -1,11 +1,42 @@
+import { useState, useRef } from 'react'
 import './Banner.css'
-function Banner() {
+
+const Banner = () => {
+    const [imagemBanner, setImagemBanner] = useState(null);
+    const inputRef = useRef();
+
+    const aoEscolherImagem = (e) => {
+        const arquivo = e.target.files[0];
+        if (arquivo){
+            const url = URL.createObjectURL(arquivo);
+            setImagemBanner(url);
+        }
+    }
+
     return (
-        <header className= "banner">  {/* A ideia é aqui ser um banner que o usuario possa alterar*/}
-            <img src="/imagens/123.gif" alt="Banner principal da pagina" />
-        </header>
-    )
+        <div className='banner' style={imagemBanner ? { backgroundImage: `url(${imagemBanner})`} : {}}>
+            {!imagemBanner && (
+                <>
+                    <div className='banner-grid'></div>
+                    <div className='banner-content'>
+                        <div className='banner-title'>Carteirinha Gamer</div>
+                        <div className='banner-sub'>Sua coleção • Histórico • Finalizados</div>
+                    </div>
+                </> 
+            )}
+            <button className='banner-upload-btn' onClick={() => inputRef.current.click()}>
+                {imagemBanner ? 'Trocar banner' : 'Adicionar banner'}
+            </button>
 
-}
+            <input
+                ref={inputRef}
+                type='file'
+                accept='image/*'
+                style={{ display: 'none'}}
+                onChange={aoEscolherImagem}
+            />
+        </div>
+    );
+};
 
-export default Banner
+export default Banner;

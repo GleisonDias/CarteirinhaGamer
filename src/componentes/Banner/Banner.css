@@ -1,7 +1,74 @@
-.banner{
-    background-color: #171a21;
+.banner {
+    position: relative;
+    overflow: hidden;
+    height: 320px;
+    background: linear-gradient(135deg, #050810 0%, #0d1525, #050810 100%);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.banner-content {
+    position: absolute;
     text-align: center;
 }
-.banner img{
-    max-width: 100%;
+.banner-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.4;
+    animation: gridMove 20s linear infinite;
+}
+@keyframes gridMove {
+    from {background-position: 0 0;}
+    to {background-position: 40px 40px;}
+}
+
+.banner-title {
+     font-family: var(--display);
+     font-size: clamp(32px, 6vw, 60px);
+     font-weight: 700;
+     letter-spacing: 6px;
+     text-transform: uppercase;
+     background: linear-gradient(180deg, #fff 0%, var(--accent) 100%);
+     background-clip: text;
+     filter: drop-shadow(0 0px 20px rgba(0, 200, 255, 0.4));
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+}
+
+.banner-sub {
+    font-family: var(--mono);
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: var(--muted);
+    margin-top: 8px;
+    text-transform: uppercase;
+}
+
+.banner-upload-btn {
+    bottom: 14px;
+    position: absolute;
+    right: 16px;
+    font-family: var(--mono);
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: var(--muted);
+    border: 1px dashed var(--border2);
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    background: rgba(10, 11, 15, 0.7);
+    backdrop-filter:  blur(4px);
+    transition: all 0.2s;
+    text-transform: uppercase;
+}
+
+.banner-upload-btn:hover{
+    color: var(--accent);
+    border-color: var(--accent);
 }

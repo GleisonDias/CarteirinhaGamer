@@ -1,22 +1,68 @@
 .formulario {
-    background-color: #23272a;
+    background-color: var(--surface);
+    border-right: 1px solid var(--border);
+    padding: 30px;
+    overflow-y: auto;
+    max-height: calc(100vh - 332px);
+}
+.formulario-header {
+    margin-bottom: 24px;
 }
 
+.formulario-tag {
+    font-family: var(--display);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.formulario-tag::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+.campo-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+@media (max-width: 900px) {
+    .formulario {
+        max-width: none;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+    .campo-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+/* 
 .formulario input::placeholder{
     color: white;
 }
 
-/* Título Principal */
+* Título Principal *
 .formulario h2 {
     color: #ffffff;
     font-size: 32px;
     margin-bottom: 10px;
     font-weight: 700;
     letter-spacing: 1px;
-    /* text-transform: uppercase; */
+    * text-transform: uppercase; *
 }
 
-/* Subtítulo */
+* Subtítulo *
 .formulario h3 {
     color: #ffffff;
     font-size: 18px;
@@ -37,7 +83,7 @@
     color: white;
     border: 1px solid #444;
     padding: 12px;             
-    border-radius: 8px;        /* Bordas arredondadas */
+    border-radius: 8px;        * Bordas arredondadas *
     width: 100%;
     box-sizing: border-box;   
 }
@@ -58,4 +104,4 @@
     border-color: #00d1ff; 
     box-shadow: 0 0 5px rgba(0, 209, 255, 0.3);
     transition: 0.2s;
-}
+} */

@@ -1,14 +1,14 @@
 import './Botao.css';
 
-const Botao =(props) => {
+const Botao = (props) => {
     return (
         <button 
             className="botao"
             type={props.tipo || 'button'}
-            onClick={props.children}
+            onClick={props.onClick}
         >
             {props.children}
         </button>
     );
 };
-export default Botao
+export default Botao;
