@@ -1,13 +1,13 @@
 import './CardJogo.css';
 
-const statusConfig = {
-    'Zerado':            { classe: 'zerado' ,    Label: 'Zerado'},
-    'Zerei o Remake':    { classe: 'zerado' ,    Label: 'Zerei Remake'},
-    'Em andamento':      { classe: 'andamento' ,    Label: 'Em Andamento'},
-    'Desejo jogar':      { classe: 'desejo' ,    Label: 'Desejo Jogar'},
-    'Näo iniciado':      { classe: 'nao' ,    Label: 'Não Iniciado'},
-    'Desisti':           { classe: 'desisti' ,    Label: 'Desisti'},
-};
+// const statusConfig = {
+//     'Zerado':            { classe: 'zerado' ,    Label: 'Zerado'},
+//     'Zerei o Remake':    { classe: 'zerado' ,    Label: 'Zerei Remake'},
+//     'Em andamento':      { classe: 'andamento' ,    Label: 'Em Andamento'},
+//     'Desejo jogar':      { classe: 'desejo' ,    Label: 'Desejo Jogar'},
+//     'Näo iniciado':      { classe: 'nao' ,    Label: 'Não Iniciado'},
+//     'Desisti':           { classe: 'desisti' ,    Label: 'Desisti'},
+// };
 
 const CardJogo = ({jogo}) => {
     console.log('O valor da props jogo:', jogo);

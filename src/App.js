@@ -8,7 +8,7 @@ function App() {
 
   const [jogos, setJogos] = useState([]);
   const [busca, setBusca] = useState('');
-  const [filtro, setFiltro] = useState('Todos');
+  const [filtro] = useState('Todos');
 
   const atualizaJogos = (jogoNovo) => {
     setJogos([...jogos, jogoNovo]);
@@ -20,7 +20,7 @@ function App() {
     return buscaOK && filterOK;
   });
 
-  const filtros = ['Todos', 'Zerado', 'Em andamento', 'Desejo jogar', 'Desisti']
+  // const filtros = ['Todos', 'Zerado', 'Em andamento', 'Desejo jogar', 'Desisti']
 
     return (
       <div className="app">
