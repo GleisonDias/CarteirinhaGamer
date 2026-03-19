@@ -1,9 +1,9 @@
 .formulario {
     background-color: var(--surface);
     border-right: 1px solid var(--border);
-    padding: 30px;
+    padding: 28px;
     overflow-y: auto;
-    max-height: calc(100vh - 332px);
+    max-height: calc(108vh - 332px);
 }
 .formulario-header {
     margin-bottom: 24px;

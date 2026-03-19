@@ -5,7 +5,11 @@ import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icon
 const CampoSelecao = (props) => {
     const [aberto, setAberto] = useState(false);
 
-    const itemAtual = (props.item || []).find(i => {
+    const listaItens = Array.isArray(props.item)
+        ? props.item
+        : Object.keys(props.item ||{});
+
+    const itemAtual = listaItens.find(i => {
         const nome = i.nome || i;
         return nome === props.valor;
     });
@@ -34,7 +38,7 @@ const CampoSelecao = (props) => {
         
             {aberto && (
                 <div className="opcoes-container">
-                    {(props.item || []).map((i) => {
+                    {listaItens.map((i) => {
                         const nome = i.nome || i;
                         const cor = i.cor || 'transparent';
                         

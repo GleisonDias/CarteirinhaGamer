@@ -92,12 +92,12 @@ const Formulario = (props) => {
                 />
 
                 <CampoSelecao
-                    label="nota"
+                    label="Nota"
                     item={notaOpcoes}
                     valor={nota}
                     aoAlterado={valor => setNota(valor)}
                 />
-                <Botao tipo="submit">Adicionar à Coleção</Botao>
+                <Botao tipo="submit">+ Adicionar à Coleção</Botao>
             </form>
         </section>
     )

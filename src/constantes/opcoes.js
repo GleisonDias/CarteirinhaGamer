@@ -35,14 +35,14 @@ export const plataformasOpcoes = [
     { nome: "Ubsoft", cor: "#0070ff" }
 ];
 
-export const statusOpcoes = [
-    'Não iniciado',
-    'Desejo jogar',
-    'Em andamento',
-    'Zerado',
-    'Zerei o Remake',
-    'Desisti'
-];
+export const statusOpcoes = {
+     'Zerado':            { classe: 'zerado' ,    label: 'Zerado'},
+     'Zerei o Remake':    { classe: 'zerado' ,    label: 'Zerei Remake'},
+     'Em andamento':      { classe: 'andamento' ,    label: 'Em Andamento'},
+     'Desejo jogar':      { classe: 'desejo' ,    label: 'Desejo Jogar'},
+     'Näo iniciado':      { classe: 'nao' ,    label: 'Não Iniciado'},
+     'Desisti':           { classe: 'desisti' ,    label: 'Desisti'},
+};
 
 export const notaOpcoes = [
     'Sem classificação',

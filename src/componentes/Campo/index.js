@@ -10,7 +10,7 @@ const Campo = (props) => {
             <label className='campo-label'>{props.label}</label>
             <input 
                 className='campo-input'
-                /*type={''}   Mexer depois, quando colocar a data*/
+                type={props.tipo || 'text'}
                 value={props.valor}
                 onChange={aoDigitado}
                 required={props.obrigatorio}

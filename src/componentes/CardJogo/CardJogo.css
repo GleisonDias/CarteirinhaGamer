@@ -1,8 +1,113 @@
 .card-jogo {
     background: var(--card);
     border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    animation: cardIn 0.4s ease both;
+}
+@keyframes cardIn {
+    from {opacity: 0; transform: translateY(12px);}
+    to  {opacity: 1; transform: none;}
+}
+
+.card-jogo:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 20px rgba(0, 200, 255, 0.1);
 }
 
 .card-info {
     padding: 12px 14px;
 }
+
+.card-nome {
+    font-family: var(--display);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-franquia {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 6px;
+    font-family: var(--mono);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-data {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    margin-bottom: 8px;
+}
+
+.card-increment {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+}
+
+.card-status {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.card-estrelas {
+    font-size: 11px;
+    color: var(--warn);
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.card-cover {
+    height: 110px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.card-cover-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #0d1525, #1a2a40);
+}
+
+.card-plataforma {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 1px;
+    padding: 3px 7px;
+    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.75);
+    color: var(--muted);
+    border: 1px solid var(--border2);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 90px;
+}
+.card-status.zerado     { background: #437353; color: var(--text); border: 1px solid #437353;}
+.card-status.andamento  { background: #3A668C; color: var(--text); border: 1px solid #3A668C;}
+.card-status.desejo     { background: #8C6B2E; color: var(--text); border: 1px solid #8C6B2E;}
+.card-status.nao        { background: #745D8C; color: var(--text); border: 1px solid #745D8C;}
+.card-status.desisti    { background: #8C4646; color: var(--text); border: 1px solid #8C4646;}
