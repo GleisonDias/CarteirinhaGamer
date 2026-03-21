@@ -6,33 +6,25 @@ import Botao from "../Botao";
 import './Formulario.css'
 
 const Formulario = (props) => {
-    const [nome, setNome] = useState('')
-    const [ordem, setOrdem] = useState('')
-    const [franquia, setFranquia] = useState('')
-    const [plataforma, setPlataforma] = useState('')
-    const [status, setStatus] = useState('')
-    const [nota, setNota] = useState('')
-    const [data, setData] = useState('')
+    const [nome, setNome] = useState('');
+    const [ordem, setOrdem] = useState('');
+    const [franquia, setFranquia] = useState('');
+    const [plataforma, setPlataforma] = useState('');
+    const [status, setStatus] = useState('');
+    const [nota, setNota] = useState('');
+    const [data, setData] = useState('');
 
     const aoSalvar = (evento) => {
-        evento.preventDefault()
-        props.onSubmit({
-            nome,
-            ordem,
-            franquia,
-            plataforma,
-            status,
-            nota,
-            data
-        })
-        setNome('')
-        setOrdem('')
-        setFranquia('')
-        setPlataforma('')
-        setStatus('')
-        setNota('')
-        setData('')
-    }
+        evento.preventDefault();
+        props.onSubmit({ nome, ordem, franquia, plataforma, status, nota, data });
+        setNome('');
+        setOrdem('');
+        setFranquia('');
+        setPlataforma('');
+        setStatus('');
+        setNota('');
+        setData('');
+    };
 
     return(
         <section className="formulario">

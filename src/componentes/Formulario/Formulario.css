@@ -3,7 +3,10 @@
     border-right: 1px solid var(--border);
     padding: 28px;
     overflow-y: auto;
+    overflow-x: hidden;
     max-height: calc(108vh - 332px);
+    min-width: 0;
+    max-width: 400px;
 }
 .formulario-header {
     margin-bottom: 24px;

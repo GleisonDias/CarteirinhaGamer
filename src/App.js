@@ -1,8 +1,10 @@
 import './App.css';
 import { useState } from 'react';
+import Nav from './componentes/Nav';
 import Banner from './componentes/Banner';
 import Formulario from './componentes/Formulario';
 import CardJogo from './componentes/CardJogo';
+import StartsBar from './componentes/StatsBar'; 
 
 function App() {
 
@@ -24,8 +26,9 @@ function App() {
 
     return (
       <div className="app">
+        <Nav />
         <Banner/>
-
+        <StartsBar jogos={jogos}/>
           <div className="app-main">
             <Formulario onSubmit={atualizaJogos} />
 
@@ -47,9 +50,7 @@ function App() {
                     {filtroAtual}
                   </button>
                 ))}
-
               </div>
-            
 
               <div className="section-head">
                 <h2>Minha Coleção</h2>
@@ -75,6 +76,6 @@ function App() {
         </header>
       </div>
     );
-}
+};
 
 export default App;

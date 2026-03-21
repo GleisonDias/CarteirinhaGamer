@@ -1,0 +1,39 @@
+.stats-bar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0 32px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+}
+
+.stats-item {
+    padding: 14px 28px;
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 3;
+    white-space: nowrap;
+}
+
+.stats-label {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: var(--mono);
+}
+
+.stats-item:first-child { padding-left: 0;}
+
+.stats-num {
+    font-family: var(--mono);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent);
+
+}
+.stats-num.green { color: var(--accent3);}
+.stats-num.orange { color: var(--warn);}
+.stats-num.blue { color: var(--accent);}
+.stats-num.red { color: var(--accent2);}

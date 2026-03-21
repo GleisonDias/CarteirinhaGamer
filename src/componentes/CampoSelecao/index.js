@@ -1,6 +1,7 @@
 import { useState } from "react";
 import './CampoSelecao.css';
 import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
+import {coresFranquia} from '../../constantes/opcoes';
 
 const CampoSelecao = (props) => {
     const [aberto, setAberto] = useState(false);
@@ -9,15 +10,25 @@ const CampoSelecao = (props) => {
         ? props.item
         : Object.keys(props.item ||{});
 
-    const itemAtual = listaItens.find(i => {
-        const nome = i.nome || i;
-        return nome === props.valor;
-    });
+    const itemAtual = Array.isArray(props.item)
+        ? props.item.find(i => (i.nome || i) === props.valor)
+        : props.item?.[props.valor];
 
     const aoClicarOpcao = (valorSelecionado) => {
         props.aoAlterado(valorSelecionado);
         setAberto(false);
     };
+
+    const corPorNome = (nome) => {
+        const indice = String(nome).split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+        return coresFranquia[indice % coresFranquia.length];
+    }
+    
+
+
+    const corAtual = itemAtual?.cor || (props.valor ? corPorNome(props.valor) : undefined);
+    
+    const corFundo = corAtual ? `${corAtual}22` : 'transparent';
     
     return (
         <div className="campo-selecao">
@@ -26,7 +37,11 @@ const CampoSelecao = (props) => {
             <div className="selecao-trigger" onClick={() => setAberto(!aberto)}>
                 <span 
                     className="tag-exibicao"
-                    style={{ backgroundColor: itemAtual?.cor || (props.valor ? '#66c0f4' : 'transparent') }}
+                    style={{ 
+                        border: `1px solid ${corAtual || 'var(--border2)'}`, 
+                        color: corAtual || 'var(--muted)',
+                        backgroundColor: corFundo
+                    }}
                 >
                     {props.valor || "Selecione..."}
                 </span>
@@ -40,7 +55,9 @@ const CampoSelecao = (props) => {
                 <div className="opcoes-container">
                     {listaItens.map((i) => {
                         const nome = i.nome || i;
-                        const cor = i.cor || 'transparent';
+                        const corItem = Array.isArray(props.item)
+                            ? (i.cor || corPorNome(String(nome)))
+                            : (props.item?.[nome]?.cor || corPorNome(String(nome)));
                         
                         return (
                             <div 
@@ -48,7 +65,13 @@ const CampoSelecao = (props) => {
                                 className={`opcao-item ${props.valor === nome ? 'selecionada' : ''}`}
                                 onClick={() => aoClicarOpcao(nome)}
                             >
-                                <span className="tag-exibicao" style={{ backgroundColor: cor }}>
+                                <span 
+                                    className="tag-exibicao" 
+                                    style={{ 
+                                        backgroundColor: `${corItem}33`,
+                                        color: corItem,
+                                        border: `1px solid ${corItem}55`
+                                }}>
                                     {nome}
                                 </span>
                             </div>
