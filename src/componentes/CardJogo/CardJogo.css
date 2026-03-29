@@ -18,6 +18,10 @@
     box-shadow: 0 4px 20px rgba(0, 200, 255, 0.1);
 }
 
+.card-jogo.in-edition {
+
+}
+
 .card-info {
     padding: 12px 14px;
 }
@@ -74,8 +78,9 @@
     white-space: nowrap;
 }
 
+/* Capa */
 .card-cover {
-    height: 110px;
+    height: 280px;
     position: relative;
     display: flex;
     align-items: center;
@@ -87,6 +92,14 @@
     position: absolute;
     inset: 0;
     background: linear-gradient(135deg, #0d1525, #1a2a40);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-placeholder {
+    font-size: 36px;
+    opacity: 0.4;
 }
 
 .card-plataforma {
@@ -106,8 +119,253 @@
     text-overflow: ellipsis;
     max-width: 90px;
 }
-/* .card-status.zerado     { background: #437353; color: var(--text); border: 1px solid #437353;}
-.card-status.andamento  { background: #3A668C; color: var(--text); border: 1px solid #3A668C;}
-.card-status.desejo     { background: #8C6B2E; color: var(--text); border: 1px solid #8C6B2E;}
-.card-status.nao        { background: #745D8C; color: var(--text); border: 1px solid #745D8C;}
-.card-status.desisti    { background: #8C4646; color: var(--text); border: 1px solid #8C4646;} */
+
+/* Botao de editar */
+.card-hover-overlay {
+    position:absolute;
+    inset: 0;
+    background: rgba(10, 11, 15, 0.4);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 12px;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.card-jogo:hover .card-hover-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-btn-edit {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 7px 18px;
+    border-radius: 5px;
+    border: 1px solid var(--accent);
+    background: rgba(0, 200, 255, 0.15);
+    color: var(--accent);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.card-btn-edit:hover { background: rgba(0, 200, 255, 0.3);}
+
+.card-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 11, 15, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+.card-jogo.in-edition .card-cover:hover .card-img-overlay {
+    opacity: 1;
+}
+
+.card-img-icon {
+    font-size: 28px;
+    transition: transform 0.2s;
+}
+.card-jogo.in-edition .card-cover:hover .card-img-icon {
+    transform: scale(1.15);
+}
+
+.card-img-text {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+/* painel url */
+.card-url-panel {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 11, 15, 0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8;
+    padding: 14px;
+    animation: fadeIn 0.2s ease;
+    z-index: 10;
+}
+@keyframes fedeIn {
+    from { opacity: 0; transform: rotateY(4px);}
+    to { opacity: 1; transform: none;}
+}
+
+.card-url-description {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--muted);
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.card-url-input {
+    width: 100%;
+    padding: 7px 10px;
+    background-color: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border2);
+    border-radius: 6px;
+    font-family: var(--mono);
+    font-size: 11px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.card-url-input:focus { border-color: var(--accent); }
+.card-url-input::placeholder { color: var(--muted); }
+
+.card-url-actions {
+    display: flex;
+    gap: 6px;
+    width: 100%;
+}
+
+.card-btn-confirm { 
+    flex: 1;
+    padding: 7px;
+    background: rgba(0, 200, 255, 0.15);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    border-radius: 5px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.card-btn-close {
+    padding: 7px 12px;
+    background: transparent;
+    border: 1px solid var(--border2);
+    color: var(--muted);
+    border-radius: 5px;
+    font-family: var(--mono);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.card-btn-close:hover { border-color: var(--muted); color: var(--text); }
+
+/* modo edicao */
+.card-edit-bar {
+    padding: 8px 12px;
+    border-top: 1px solid rgba(255, 184, 0, 0.2);
+    background: rgba(255, 184, 0, 0.04);
+    animation: fadeIn 0.2s ease;
+}
+
+.card-edit-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.card-btn-ok {
+    flex: 1;
+    padding: 8px;
+    background: rgba(57, 217, 138, 0.15);
+    border: 1px solid var(--accent3);
+    color: var(--accent3);
+    border-radius: 5px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.card-btn-ok:hover { background: rgba(57, 217, 138, 0.3);}
+
+.card-btn-delete {
+    padding: 8px 14px;
+    background: transparent;
+    border: 1px solid #ff4d6d55;
+    color: var(--accent2);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.card-btn-delete:hover {
+    background: rgba(255, 77, 109, 0.15);
+    border-color: var(--accent2);
+}
+
+/* confimar que deletou */
+.card-confirm {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+.card-confirm span {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent2);
+    letter-spacing: 1px;
+}
+
+.card-confirm-btns {
+    display: flex;
+    gap: 6px;
+}
+
+.card-btn-yes {
+    padding: 6px 14px;
+    background: rgba(255, 77, 109, 0.2);
+    border: 1px solid var(--accent2);
+    color: var(--accent2);
+    border-radius: 5px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.card-btn-yes:hover { background: rgba(255, 77, 109, 0.4); }
+
+.card-btn-no {
+    padding: 6px 14px;
+    background: transparent;
+    border: 1px solid var(--border2);
+    color: var(--muted);
+    border-radius: 5px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.card-btn-no:hover {
+    border-color: var(--muted);
+    color: var(--text);
+}
+
+
+
+
+
+
+
+
