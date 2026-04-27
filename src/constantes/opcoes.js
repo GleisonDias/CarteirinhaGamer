@@ -1,29 +1,6 @@
 
 export const ordemCrono = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 
-export const franquiaOpcoes = [
-  "Dead Rising",
-  "Não tem",
-  "Bioshock",
-  "Mafia",
-  "Broforce",
-  "Truck Simulator",
-  "Deep Rock Galactic",
-  "Torchlight",
-  "Lego Marvel",
-  "Warhammer 40000",
-  "Dying Light",
-  "Darksiders",
-  "The Witcher",
-  "State of Decay",
-  "Borderlands",
-  "Left 4 Dead",
-  "Max Payne",
-  "Lego Senhor dos Aneis",
-  "One Piece Pirate Warriors",
-  "Lego Harry Potter"
-];
-
 export const plataformasOpcoes = [
     { nome: "Ps1",              cor: "#37daff" },
     { nome: "Ps2",              cor: "#06b6d4" }, 
