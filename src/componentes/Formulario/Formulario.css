@@ -47,7 +47,11 @@
     }
 }
 
-
+.botao.editing {
+    background: linear-gradient(135deg, #cc8800, var(--warn));
+    /*background: linear-gradient(135deg, #ffffff, var(--ward));*/
+    box-shadow: 0 4px 20px rgba(255, 184, 0, 0.3);
+}
 
 
 /* 

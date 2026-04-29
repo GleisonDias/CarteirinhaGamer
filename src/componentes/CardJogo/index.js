@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './CardJogo.css';
 import {notaOpcoes, statusOpcoes} from '../../constantes/opcoes';
 
-const CardJogo = ({jogo, index, onDelete, onUpdate}) => {
+const CardJogo = ({jogo, index, onDelete, onUpdate, onEdit, isAnyEditing}) => {
     const [isEditing, setIsEditing] = useState(false);
     const [urlPanel, setUrlPanel] = useState(false);
     const [imageUrl, setImageUrl] = useState(jogo.imagem || '');
@@ -11,6 +11,14 @@ const CardJogo = ({jogo, index, onDelete, onUpdate}) => {
 
     const status = statusOpcoes[jogo.status] || {classe: 'nao', label: 'Sem Status', cor:'#5a6a8a'};
     const qtdEstrelas = Math.max(0, notaOpcoes.indexOf(jogo.nota));
+
+    useEffect(() => {
+        if (!isAnyEditing) {
+            setIsEditing(false);
+            setUrlPanel(false);
+            setIsDeleting(false);
+        }
+    }, [isAnyEditing]);
 
     const handleOpenUrlPanel = () => {
         setTempUrl(imageUrl);
@@ -27,12 +35,6 @@ const CardJogo = ({jogo, index, onDelete, onUpdate}) => {
         setTempUrl('');
         setUrlPanel(false);
     };
-    
-    const handleExitEdit = () => {
-        setIsEditing(false);
-        setUrlPanel(false);
-        setIsDeleting(false);
-    };
 
     const handleDelete = () => {
         if (isDeleting) {
@@ -40,6 +42,11 @@ const CardJogo = ({jogo, index, onDelete, onUpdate}) => {
         } else {
             setIsDeleting(true);
         }
+    };
+
+    const handleEdit = () => {
+        setIsEditing(true);
+        onEdit(index);
     };
 
     return (
@@ -59,9 +66,9 @@ const CardJogo = ({jogo, index, onDelete, onUpdate}) => {
                 )}
 
                 {/*botao de editar*/}
-                {!isEditing && (
+                {!isEditing && !isAnyEditing && (
                     <div className='card-hover-overlay'>
-                        <button className='card-btn-edit' onClick={() => setIsEditing(true)}>
+                        <button className='card-btn-edit' onClick={handleEdit}>
                             ✏️ Editar
                         </button>
                     </div>
@@ -107,7 +114,6 @@ const CardJogo = ({jogo, index, onDelete, onUpdate}) => {
                         </div>
                     )   :   (
                         <div className='card-edit-actions'>
-                            <button className='card-btn-ok' onClick={handleExitEdit}>Concluir</button>
                             <button className='card-btn-delete' onClick={handleDelete}>🗑️</button>
                         </div>
                     )}

@@ -19,7 +19,14 @@
 }
 
 .card-jogo.in-edition {
+    border-color: var(--warn);
+    box-shadow: 0 4px 20px rgba(255, 184, 0, 0.15);
+    transform: none;
+}
 
+.card-jogo.in-edition:hover {
+    transform: none;
+    border-color: var(--warn);
 }
 
 .card-info {
@@ -197,12 +204,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 8;
+    gap: 8px;
     padding: 14px;
     animation: fadeIn 0.2s ease;
     z-index: 10;
 }
-@keyframes fedeIn {
+@keyframes fadeIn {
     from { opacity: 0; transform: rotateY(4px);}
     to { opacity: 1; transform: none;}
 }
@@ -273,6 +280,7 @@
     border-top: 1px solid rgba(255, 184, 0, 0.2);
     background: rgba(255, 184, 0, 0.04);
     animation: fadeIn 0.2s ease;
+    min-height: 44px;
 }
 
 .card-edit-actions {

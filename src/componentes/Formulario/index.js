@@ -56,9 +56,9 @@ const Formulario = (props) => {
                     placeholder="Ex: The last of us"
                     valor={nome}
                     aoAlterado={valor => setNome(valor)}
-                    obrigatoriosaved franchises
+                    obrigatorio
                 />
-
+                {/* Franquia agora é campo de texto com autocomplete*/}
                 <div className="campo-row">
                     <div className="campo">
                         <label className="campo-label">Franquia</label>
@@ -112,19 +112,9 @@ const Formulario = (props) => {
                     valor={nota}
                     aoAlterado={valor => setNota(valor)}
                 />
-                <Botao tipo="submit">
+                <Botao tipo="submit" className={editing ? 'editing' : ''}>
                     {editing ? '✓ Salvar alterações' : '+ Adicionar à Coleção'}
                 </Botao>
-
-                {editing && (
-                    <button
-                        type="button"
-                        className="cancel-button"
-                        onClick={props.onCancelEdit}
-                    >
-                        Cancelar
-                    </button>
-                )}
             </form>
         </section>
     );
