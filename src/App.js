@@ -26,10 +26,10 @@ function App() {
     // acesso a propriedade - curto circuito - negacao logica - spread operator - imutabilidade - função despachante.
     if (jogoNovo.franquia &&  !savedFranchises.includes(jogoNovo.franquia)) {
       setSavedFranchises([...savedFranchises, jogoNovo.franquia]);
-    } {/* Primeiro verifica se jogoNovo.franquia existe. Se sim, o includes verifica se esse valor ja esta em
+    } /* Primeiro verifica se jogoNovo.franquia existe. Se sim, o includes verifica se esse valor ja esta em
        franquiasUsadas e retorna true. o !(operador negativo) inverte pra false, impedindo a execuçao.
        Se nao existir, o includes retorna false, o ! inverte pra true, e como os dois lados do && sao true,
-       o bloco executa e a funcao despachate adiciona o novo item. */}
+       o bloco executa e a funcao despachate adiciona o novo item. */
   };
 
   // atualizar só campos especificos do card. (ex: capa)
@@ -39,7 +39,7 @@ function App() {
   }; 
 
   const deleteGame = (index) => {
-    {/* Filter entrega 2 parametros (item, indice), o Underline recebe o item mas sinaliza que esse parametro sera ignorado. */}
+    /* Filter entrega 2 parametros (item, indice), o Underline recebe o item mas sinaliza que esse parametro sera ignorado. */
     setJogos(jogos.filter((_, i) => i !== index));
     setEditingGame(null);
   };
